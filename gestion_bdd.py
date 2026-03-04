@@ -70,16 +70,16 @@ def supprimer_mot():
         print(f"Le mot {mot_supprime['kanji']} a été supprimé")
 
 
-def editer_mot():
+def modifier_mot():
     if not mots:
-        print("La base de données est vide, aucun mot à éditer.")
+        print("La base de données est vide, aucun mot à modifier.")
         return
 
     for i, mot in enumerate(mots, start = 1):
         print(f"{i}. {mot['kanji']} ({mot['lecture']} - {mot['traduction']})")
 
 
-    num = int(input("Entrez le numéro du mot à éditer: "))
+    num = int(input("Entrez le numéro du mot à modifier: "))
     if 1 <= num <= len(mots):
         mot_choisi = mots[num - 1]
 
@@ -89,7 +89,7 @@ def editer_mot():
 
             liste_cles = list(mot_choisi.keys())
 
-            choix = int(input("Choisissez la valeur à éditer: "))
+            choix = int(input("Choisissez la valeur à modifier: "))
 
             if 1 <= choix <= len(liste_cles):
                 cle_a_editer = liste_cles[choix - 1]
@@ -102,13 +102,3 @@ def editer_mot():
             continuer = input("Modifier une autre valeur? (o/n): ")
             if continuer.lower() == "n":
                 break
-
-
-
-
-            # bon en gros la je veux faire une deuxieme boucle
-            # pour numéroter chaque clé du mot choisi précedemment
-            # et ensuite selon l'input de l'utilisateur ca va modifier uniquement
-            # la clé en qst, et après ca va demander si il a fini ou pas si oui break
-
-

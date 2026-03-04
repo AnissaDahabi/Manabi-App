@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2919bd4a-7aab-45b0-a619-f5107c7e9a8a" name="Changes" comment="ajouter_mot() and supprimer_mot() functional">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion_bdd.py" beforeDir="false" afterPath="$PROJECT_DIR$/gestion_bdd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="2919bd4a-7aab-45b0-a619-f5107c7e9a8a" name="Changes" comment="modifier_mot() functional!" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,18 +25,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "AnissaDahabi"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;AnissaDahabi&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/AnissaDahabi/Manabi.git",
-    "accountId": "19733b15-62e7-46bf-bfd4-771bb9927454"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/AnissaDahabi/Manabi.git&quot;,
+    &quot;accountId&quot;: &quot;19733b15-62e7-46bf-bfd4-771bb9927454&quot;
   }
-}]]></component>
+}</component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
@@ -99,13 +95,22 @@
       <option name="project" value="LOCAL" />
       <updated>1772623663617</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="modifier_mot() functional!">
+      <option name="closed" value="true" />
+      <created>1772636928963</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1772636928963</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First commit, checking if the afficher_mots() works" />
     <MESSAGE value="ajouter_mot() and supprimer_mot() functional" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajouter_mot() and supprimer_mot() functional" />
+    <MESSAGE value="modifier_mot() functional!" />
+    <option name="LAST_COMMIT_MESSAGE" value="modifier_mot() functional!" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
