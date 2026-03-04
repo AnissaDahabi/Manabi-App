@@ -1,0 +1,26 @@
+[
+    {
+        "kanji": "漢字",
+        "lecture": "かんじ",
+        "traduction": "caractères chinois utilisés en japonais",
+        "exemple": "日本語の漢字は難しいです。",
+        "traduction_exemple": "Les kanjis japonais sont difficiles.",
+        "niveau": "N5"
+    },
+    {
+        "kanji": "猫",
+        "lecture": "ねこ",
+        "traduction": "chat",
+        "exemple": "私は猫が好きです。",
+        "traduction_exemple": "J'aime les chats.",
+        "niveau": "N5"
+    },
+    {
+        "kanji": "犬",
+        "lecture": "いぬ",
+        "traduction": "chien",
+        "exemple": "彼女は吠える犬を怖がる。",
+        "traduction_exemple": "Elle a peur des chiens qui aboient.",
+        "niveau": "N5"
+    }
+]
