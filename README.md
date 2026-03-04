@@ -1,8 +1,6 @@
 # Manabi
 
-[![Python](https://img.shields.io/badge/Python-3.11-blue.svg)](https://www.python.org/)  
-[![SQLite](https://img.shields.io/badge/SQLite-3.41-blue.svg)](https://www.sqlite.org/)  
-[![PySide6](https://img.shields.io/badge/PySide6-6.6-blue.svg)](https://doc.qt.io/qtforpython/)
+[![Python](https://img.shields.io/badge/Python-3.11-blue.svg)](https://www.python.org/)  [![SQLite](https://img.shields.io/badge/SQLite-3.41-blue.svg)](https://www.sqlite.org/)  [![PySide6](https://img.shields.io/badge/PySide6-6.6-blue.svg)](https://doc.qt.io/qtforpython/)
 
 Manabi est une application de bureau pour réviser les kanjis et le vocabulaire japonais. Elle propose un système de flashcards avec répétition espacée et permet à l’utilisateur de gérer sa base de données de mots (ajout, modification, suppression, consultation).
 
