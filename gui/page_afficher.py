@@ -1,151 +1,105 @@
 from PySide6.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QLabel,
-    QTableWidget, QTableWidgetItem
+    QTableWidget, QTableWidgetItem, QAbstractItemView
 )
 from PySide6.QtCore import Qt
 from gestion_bdd import afficher_mots
-import os
 
 
 class PageAfficher(QWidget):
-    def __init__(self, curseur, retour_callback):
+    def __init__(self, curseur, stacked_widget, retour_callback):
         super().__init__()
-
         self.curseur = curseur
+        self.stacked_widget = stacked_widget
 
-        main_layout = QHBoxLayout()
-        self.setLayout(main_layout)
+        main_layout = QHBoxLayout(self)
 
         # Sidebar
-        sidebar = QVBoxLayout()
-        sidebar.setSpacing(10)
-
-        label_parcourir = QLabel("Parcourir")
-        sidebar.addWidget(label_parcourir)
-
-        self.btn_niveaux = []
-
-        for niveau in ["JLPT N5", "JLPT N4", "JLPT N3", "JLPT N2", "JLPT N1"]:
-            btn = QPushButton(niveau)
-            btn.setFixedHeight(30)
-            btn.setFlat(True)
-            btn.setStyleSheet("text-align: left; padding-left: 5px;")
-            sidebar.addWidget(btn)
-            self.btn_niveaux.append(btn)
-
-        sidebar.addSpacing(20)
-
-        label_param = QLabel("Paramètres")
-        sidebar.addWidget(label_param)
-
-        btn_param = QPushButton("Options")
-        btn_param.setFixedHeight(30)
-        btn_param.setFlat(True)
-        btn_param.setStyleSheet("text-align: left; padding-left: 5px;")
-        sidebar.addWidget(btn_param)
-
-        sidebar.addStretch()
-
         sidebar_widget = QWidget()
         sidebar_widget.setObjectName("sidebar_widget")
-        sidebar_widget.setLayout(sidebar)
         sidebar_widget.setFixedWidth(150)
-
+        sidebar = QVBoxLayout(sidebar_widget)
+        sidebar.addWidget(QLabel("Parcourir"))
+        for niveau in ["JLPT N5", "JLPT N4", "JLPT N3", "JLPT N2", "JLPT N1"]:
+            btn = QPushButton(niveau)
+            btn.setFlat(True)
+            sidebar.addWidget(btn)
+        sidebar.addStretch()
         main_layout.addWidget(sidebar_widget)
 
-        # Contenu principal
         content_layout = QVBoxLayout()
+        content_layout.setSpacing(15)
 
-        # Header
-        header_layout = QHBoxLayout()
+        # Boutons
+        retour_layout = QHBoxLayout()
+        self.btn_retour = QPushButton("Retour")
+        self.btn_retour.setObjectName("btn_retour")
+        self.btn_retour.setFixedSize(100, 40)
+        self.btn_retour.setCursor(Qt.PointingHandCursor)
+        self.btn_retour.clicked.connect(retour_callback)
 
-        self.label_title = QLabel("Liste des mots")
-        header_layout.addWidget(self.label_title)
+        retour_layout.addWidget(self.btn_retour)
+        retour_layout.addStretch()
+        content_layout.addLayout(retour_layout)
 
-        header_layout.addStretch()
-
-        self.bouton_ajouter = QPushButton("Ajouter")
-        self.bouton_ajouter.setObjectName("bouton_ajouter")
-        self.bouton_ajouter.setFixedSize(100, 40)
-
-        header_layout.addWidget(self.bouton_ajouter)
-
-        content_layout.addLayout(header_layout)
+        # Titre
+        title_layout = QHBoxLayout()
+        title_layout.addStretch()
+        self.label_titre = QLabel("Liste des mots")
+        self.label_titre.setObjectName("titre_page")
+        title_layout.addWidget(self.label_titre)
+        title_layout.addStretch()
+        content_layout.addLayout(title_layout)
 
         # Tableau
         self.table = QTableWidget()
         self.table.setColumnCount(4)
-        self.table.setHorizontalHeaderLabels(
-            ["ID", "Kanji", "Lecture", "Traduction"]
-        )
+        self.table.setHorizontalHeaderLabels(["ID", "Kanji", "Lecture", "Traduction"])
 
-        self.table.setColumnWidth(0, 50)
-        self.table.setColumnWidth(1, 150)
-        self.table.setColumnWidth(2, 150)
-        self.table.setColumnWidth(3, 150)
-
-        self.table.setSelectionBehavior(QTableWidget.SelectRows)
-        self.table.setSelectionMode(QTableWidget.SingleSelection)
-
-        self.table.cellDoubleClicked.connect(self.ouvrir_page_modifier)
-
-
+        self.table.setSelectionBehavior(QAbstractItemView.SelectRows)
+        self.table.setSelectionMode(QAbstractItemView.SingleSelection)
+        self.table.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.table.setFocusPolicy(Qt.NoFocus)
 
         self.table.verticalHeader().setVisible(False)
-        self.table.setAlternatingRowColors(True)
-        self.table.setMinimumSize(600, 450)
+        self.table.cellDoubleClicked.connect(self.ouvrir_page_modifier)
+        self.table.horizontalHeader().setStretchLastSection(True)
 
         content_layout.addWidget(self.table)
 
-        # Bouton retour
-        self.btn_retour = QPushButton("Retour")
-        self.btn_retour.setObjectName("btn_retour")
-        self.btn_retour.setFixedSize(100, 40)
-        self.btn_retour.clicked.connect(retour_callback)
+        content_layout.addStretch()
 
-        content_layout.addWidget(self.btn_retour, alignment=Qt.AlignCenter)
+        footer_layout = QHBoxLayout()
+        footer_layout.addStretch()
 
-        content_widget = QWidget()
-        content_widget.setLayout(content_layout)
+        self.btn_ajouter = QPushButton("Ajouter")
+        self.btn_ajouter.setFixedSize(150, 45)
+        footer_layout.addWidget(self.btn_ajouter)
 
-        main_layout.addWidget(content_widget)
+        footer_layout.addStretch()
 
+        footer_layout.setContentsMargins(0, 0, 0, 20)
+
+        content_layout.addLayout(footer_layout)
+
+        main_layout.addLayout(content_layout)
         self.charger_mots()
 
-        self.load_qss()
-
     def charger_mots(self):
-
         mots = afficher_mots(self.curseur)
-
         self.table.setRowCount(len(mots))
-
         for row, mot in enumerate(mots):
-
-            self.table.setItem(row, 0, QTableWidgetItem(str(mot[0])))
-            self.table.setItem(row, 1, QTableWidgetItem(mot[1]))
-            self.table.setItem(row, 2, QTableWidgetItem(mot[2]))
-            self.table.setItem(row, 3, QTableWidgetItem(mot[3]))
+            for col in range(4):
+                item = QTableWidgetItem(str(mot[col]))
+                item.setTextAlignment(Qt.AlignCenter)
+                self.table.setItem(row, col, item)
 
     def ouvrir_page_modifier(self, row, column):
-
         id_mot = self.table.item(row, 0).text()
-
-        from gui.page_afficher_mot import PageAfficherMot
-
-        self.page_afficher_mot = PageAfficherMot(self.curseur, id_mot)
-
-        self.page_afficher_mot.show()
-
-    # qss
-    def load_qss(self):
-
-        qss_path = os.path.join(os.path.dirname(__file__), "styles.qss")
-
-        if os.path.exists(qss_path):
-
-            with open(qss_path, "r") as f:
-                self.setStyleSheet(f.read())
-
-        else:
-            print("Fichier styles.qss non trouvé")
+        from .page_afficher_mot import PageAfficherMot
+        self.page_detail = PageAfficherMot(
+            self.curseur, id_mot,
+            lambda: self.stacked_widget.setCurrentIndex(1)
+        )
+        self.stacked_widget.addWidget(self.page_detail)
+        self.stacked_widget.setCurrentWidget(self.page_detail)

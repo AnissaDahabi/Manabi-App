@@ -1,9 +1,11 @@
-/* Main window */
 QMainWindow {
     background-color: #FBF7E8;
 }
 
-/* Labels */
+.QWidget {
+    background-color: #FBF7E8;
+}
+
 QLabel {
     font-size: 22px;
     font-weight: bold;
@@ -26,30 +28,38 @@ QPushButton:hover {
     background-color: #9D6673;
 }
 
-QPushButton:pressed {
-    background-color: #9D6673;
+#btn_retour {
+    background-color: transparent;
+    color: #59393F;
+    border: none;
+    font-weight: bold;
+}
+
+#btn_retour:hover {
+    color: #9D6673;
 }
 
 /* Sidebar */
-QWidget#sidebar_widget {
+#sidebar_widget {
     background-color: #F3EEDD;
 }
 
-#label_parcourir, #label_parametres {
+#sidebar_widget QLabel {
+    font-size: 18px;
+    color: #59393F;
+    margin-top: 10px;
     background-color: transparent;
 }
 
 #sidebar_widget QPushButton {
     background-color: transparent;
-    border: none;
     color: #59393F;
     font-weight: normal;
     text-align: left;
-    padding-left: 5px;
-}
-
-#sidebar_widget QPushButton:hover {
-    color: #D8A4AF;
+    padding-left: 10px;
+    border-radius: 0px;
+    min-width: 0px;
+    min-height: 30px;
 }
 
 /* Tableau */
@@ -70,6 +80,7 @@ QHeaderView::section {
 
 QTableWidget::item {
     padding: 5px;
+    background-color: #F3EEDD;
 }
 
 QTableWidget::item:selected {
@@ -85,45 +96,40 @@ QTableWidget::item:!selected {
     background-color: #FBF7E8;
 }
 
-QWidget {
-    background-color: #FBF7E8;
+QTableWidget {
+    outline: none;
 }
 
-/* Card */
+/* CARD */
 #card_mot {
     background-color: #F3EEDD;
-    padding: 30px;
-    max-width: 500px;
+    padding: 70px 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 40px;
     border: 1px solid #e6dfd2;
+    border-radius: 10px;
 }
 
-#mot_id {
-    font-size: 12px;
-    color: #59393F;
+#kanji_label { font-size: 56px; background-color: transparent; }
+#lecture_trad { font-size: 24px; color: #74404C; background-color: transparent; }
+
+#id_label_card {
+    font-size: 14px;
+    font-weight: normal;
+    color: #86616A;
     background-color: transparent;
 }
 
-#kanji_label {
-    font-size: 56px;
-    font-weight: bold;
-    color: #59393F;
-    background-color: transparent;
-}
-
-#lecture_trad {
-    font-size: 24px;
-    color: #74404C;
-    background-color: transparent;
-}
-
-#exemple, #trad_exemple, #niveau_label {
+#exemple_label, #trad_exemple_label {
     font-size: 16px;
     font-weight: bold;
     color: #86616A;
     background-color: transparent;
 }
 
-QTextEdit {
-    border: none;
-    background: transparent;
+#niveau_label {
+    font-size: 14px;
+    color: #86616A;
+    background-color: transparent;
 }
