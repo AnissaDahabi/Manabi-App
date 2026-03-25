@@ -8,7 +8,7 @@ QMainWindow {
 }
 
 #logo {
-    font-family: 'Noto Serif JP', Georgia, serif;
+    font-family: 'DM Sans', 'Segoe UI', sans-serif;
     font-size: 40px;
     color: #c0392b;
 }
@@ -22,21 +22,18 @@ QMainWindow {
 }
 
 QPushButton {
-    background-color: transparent;
     font-family: 'DM Sans', 'Segoe UI', sans-serif;
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 5px;
     color: #8a8580;
     border: none;
-    padding: 10px;
-    text-align: left;
-    font-size: 14px;
-    border-radius: 5px;
 }
 
 QPushButton:hover {
     background-color: #c0392b;
     color: white;
     font-weight: bold;
-
 }
 
 QPushButton:checked {
@@ -66,4 +63,68 @@ QPushButton:checked {
     font-family: 'Noto Serif JP', Georgia, serif;
     color: #2C2C2C;
     padding: 10px;
+}
+
+QTableWidget {
+    background-color: #FFFFFF;
+    alternate-background-color: #F4F1ED;
+    color: #2C2C2C;
+    gridline-color: #E0DDD8;
+    border: 1px solid #E0DDD8;
+    border-radius: 8px;
+}
+
+QHeaderView::section {
+    color: #C0392B;
+    background-color: #F4F1ED;
+    border: 1px solid #E0DDD8;
+    padding: 6px;
+    font-weight: bold;
+}
+
+QTableWidget::item {
+    padding: 6px;
+}
+
+QTableWidget::item:selected {
+    background-color: #ECE0CF;
+    color: #2C2C2C;
+}
+
+QTableWidget::item:hover {
+    background-color: #ECE0CF;
+    color: #2C2C2C;
+}
+
+QTableWidget:focus {
+    outline: none;
+}
+
+QTableWidget::item:focus {
+    outline: none;
+}
+
+QPushButton#btnEdit {
+    background-color: #c0392b;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 5px 15px;
+}
+
+QPushButton#btnEdit:hover {
+    background-color: #922b21;
+}
+
+QPushButton#btnDelete {
+    background-color: #c0392b;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 20px;
+    font-family: 'DM Sans', sans-serif;
+}
+
+QPushButton#btnDelete:hover {
+    background-color: #922b21;
 }
