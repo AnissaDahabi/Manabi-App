@@ -1,6 +1,7 @@
 from PySide6.QtWidgets import QMainWindow, QWidget, QHBoxLayout, QVBoxLayout, QStackedWidget, QLabel, QPushButton
 from PySide6.QtCore import Qt
 
+from gui.page_dashboard import PageDashboard
 from gui.page_utilisateurs import PageUtilisateurs
 from gui.page_cours import PageCours
 from gui.page_sessions import PageSessions
@@ -14,28 +15,36 @@ class MainWindow(QMainWindow):
 
         self.setup_ui()
 
+        self.page_dashboard = PageDashboard()
         self.page_users = PageUtilisateurs()
         self.page_cours = PageCours()
         self.page_sessions = PageSessions()
         self.page_resas = PageReservations()
 
+        self.content_stack.addWidget(self.page_dashboard)
         self.content_stack.addWidget(self.page_users)
         self.content_stack.addWidget(self.page_cours)
         self.content_stack.addWidget(self.page_sessions)
         self.content_stack.addWidget(self.page_resas)
 
-        self.btn_users.clicked.connect(lambda: self.naviguer(0, "Gestion des Utilisateurs", self.btn_users))
-        self.btn_cours.clicked.connect(lambda: self.naviguer(1, "Gestion des Cours", self.btn_cours))
-        self.btn_sessions.clicked.connect(lambda: self.naviguer(2, "Gestion des Sessions", self.btn_sessions))
-        self.btn_reservations.clicked.connect(lambda: self.naviguer(3, "Gestion des Réservations", self.btn_reservations))
+        self.btn_dashboard.clicked.connect(lambda: self.naviguer(0, "Dashboard", self.btn_dashboard))
+        self.btn_users.clicked.connect(lambda: self.naviguer(1, "Gestion des Utilisateurs", self.btn_users))
+        self.btn_cours.clicked.connect(lambda: self.naviguer(2, "Gestion des Cours", self.btn_cours))
+        self.btn_sessions.clicked.connect(lambda: self.naviguer(3, "Gestion des Sessions", self.btn_sessions))
+        self.btn_reservations.clicked.connect(lambda: self.naviguer(4, "Gestion des Réservations", self.btn_reservations))
 
-        self.naviguer(0, "Gestion des Utilisateurs", self.btn_users)
+        self.naviguer(0, "Dashboard", self.btn_dashboard)
 
     def naviguer(self, index, titre, bouton):
         self.content_stack.setCurrentIndex(index)
         self.topbar_label.setText(titre)
 
-        for b in [self.btn_users, self.btn_cours, self.btn_sessions, self.btn_reservations]:
+        if index == 0 or index == 4:
+            self.btn_ajouter.hide()
+        else:
+            self.btn_ajouter.show()
+
+        for b in [self.btn_dashboard, self.btn_users, self.btn_cours, self.btn_sessions, self.btn_reservations]:
             b.setChecked(False)
         bouton.setChecked(True)
 
@@ -69,12 +78,13 @@ class MainWindow(QMainWindow):
         self.sidebar_layout.addWidget(self.logo_title)
 
         # boutons
+        self.btn_dashboard = QPushButton("Dashboard")
         self.btn_users = QPushButton("Utilisateurs")
         self.btn_cours = QPushButton("Cours")
         self.btn_sessions = QPushButton("Sessions")
         self.btn_reservations = QPushButton("Réservations")
 
-        for b in [self.btn_users, self.btn_cours, self.btn_sessions, self.btn_reservations]:
+        for b in [self.btn_dashboard, self.btn_users, self.btn_cours, self.btn_sessions, self.btn_reservations]:
             b.setCheckable(True)
             b.setCursor(Qt.PointingHandCursor)
             self.sidebar_layout.addWidget(b)

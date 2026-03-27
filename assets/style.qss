@@ -8,7 +8,8 @@ QMainWindow {
 }
 
 #logo {
-    font-family: 'DM Sans', 'Segoe UI', sans-serif;
+    font-family: 'Noto Serif JP', Georgia, serif;
+    font-weight: bold;
     font-size: 40px;
     color: #c0392b;
 }
@@ -17,7 +18,7 @@ QMainWindow {
     font-family: 'Noto Serif JP', Georgia, serif;
     font-size: 22px;
     font-weight: bold;
-    color: #c0392b;
+    color: #2C2C2C;
     padding-bottom: 1em;
 }
 
@@ -127,4 +128,46 @@ QPushButton#btnDelete {
 
 QPushButton#btnDelete:hover {
     background-color: #922b21;
+}
+
+#sectionTitre {
+    font-size: 18px;
+    font-weight: bold;
+    color: #c0392b;
+    margin-bottom: 10px;
+    font-family: 'Noto Serif JP', Georgia, serif;
+
+}
+
+#statCard {
+    background-color: white;
+    border: 1px solid #E0DDD8;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    padding: 15px;
+    transition: transform 0.2s box-shadow 0.2s;
+}
+
+#statTitre {
+    color: #8a8580;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+#statValeur {
+    color: #2C2C2C;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#statCard[status="attente"] {
+    border-left: 2px solid #DD8923;
+}
+
+#statCard[status="confirmee"] {
+    border-left: 2px solid #529C15;
+}
+
+#statCard[status="annulee"] {
+    border-left: 2px solid #C0392B;
 }
