@@ -55,7 +55,6 @@ QPushButton:checked {
 
 #btnAjouter:hover {
     background-color: #922b21;
-    border-radius: 20px;
 }
 
 #topbarLabel {
@@ -64,6 +63,21 @@ QPushButton:checked {
     font-family: 'Noto Serif JP', Georgia, serif;
     color: #2C2C2C;
     padding: 10px;
+}
+
+#userPrenom {
+    font-size: 13px;
+    color: #2c2c2c;
+}
+
+#userNom {
+    font-size: 13px;
+    color: #2c2c2c;
+}
+
+#userRole {
+    font-size: 11px;
+    color: #c0392b;
 }
 
 QTableWidget {
@@ -83,91 +97,105 @@ QHeaderView::section {
     font-weight: bold;
 }
 
-QTableWidget::item {
-    padding: 6px;
-}
-
-QTableWidget::item:selected {
-    background-color: #ECE0CF;
-    color: #2C2C2C;
-}
-
-QTableWidget::item:hover {
-    background-color: #ECE0CF;
-    color: #2C2C2C;
-}
-
-QTableWidget:focus {
-    outline: none;
-}
-
-QTableWidget::item:focus {
-    outline: none;
-}
-
-QPushButton#btnEdit {
-    background-color: #c0392b;
-    color: white;
-    font-weight: bold;
-    border-radius: 20px;
-    padding: 5px 15px;
-}
-
-QPushButton#btnEdit:hover {
-    background-color: #922b21;
-}
-
-QPushButton#btnDelete {
-    background-color: #c0392b;
-    color: white;
-    text-align: center;
-    font-weight: bold;
-    border-radius: 20px;
-    font-family: 'DM Sans', sans-serif;
-}
-
-QPushButton#btnDelete:hover {
-    background-color: #922b21;
-}
-
 #sectionTitre {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: bold;
-    color: #c0392b;
-    margin-bottom: 10px;
+    color: #2c2c2c;
     font-family: 'Noto Serif JP', Georgia, serif;
-
+    padding-top: 8px;
 }
 
 #statCard {
     background-color: white;
     border: 1px solid #E0DDD8;
     border-radius: 10px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-    padding: 15px;
-    transition: transform 0.2s box-shadow 0.2s;
 }
 
 #statTitre {
     color: #8a8580;
-    font-size: 11px;
-    font-weight: bold;
+    font-size: 12px;
 }
 
 #statValeur {
-    color: #2C2C2C;
-    font-size: 28px;
+    color: #2c2c2c;
+    font-size: 34px;
     font-weight: bold;
+    font-family: 'Noto Serif JP', Georgia, serif;
+}
+
+#statCard[status="attente"] #statValeur {
+    color: #BA7517;
+}
+
+#statCard[status="confirmee"] #statValeur {
+    color: #3B6D11;
+}
+
+#statCard[status="annulee"] #statValeur {
+    color: #c0392b;
 }
 
 #statCard[status="attente"] {
-    border-left: 2px solid #DD8923;
+    border-left: 3px solid #BA7517;
 }
 
 #statCard[status="confirmee"] {
-    border-left: 2px solid #529C15;
+    border-left: 3px solid #3B6D11;
 }
 
 #statCard[status="annulee"] {
-    border-left: 2px solid #C0392B;
+    border-left: 3px solid #c0392b;
+}
+
+#loginKanji {
+    font-size: 52px;
+    color: #c0392b;
+    font-family: 'Noto Serif JP', serif;
+}
+
+#loginTitre {
+    font-size: 20px;
+    font-weight: bold;
+    color: #2c2c2c;
+    font-family: 'Noto Serif JP', serif;
+}
+
+#loginSousTitre {
+    font-size: 12px;
+    color: #8a8580;
+    margin-bottom: 8px;
+}
+
+#loginErreur {
+    color: #c0392b;
+    font-size: 12px;
+}
+
+#btnLogin {
+    background-color: #c0392b;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+#btnLogin:hover {
+    background-color: #922b21;
+}
+
+QLineEdit {
+    color: #2c2c2c;
+    border: 1px solid #E0DDD8;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 13px;
+    background: #faf9f7;
+}
+
+QLineEdit:focus {
+    border: 1px solid #c0392b;
+    background: white;
+}
+
+#loginWindow {
+    background-color: #F4F1ED;
 }

@@ -8,14 +8,16 @@ from gui.page_sessions import PageSessions
 from gui.page_reservations import PageReservations
 
 class MainWindow(QMainWindow):
-    def __init__(self):
+    def __init__(self, user):
         super().__init__()
+
+        self.user = user
         self.setWindowTitle("Manabi Admin")
         self.resize(1100, 700)
 
         self.setup_ui()
 
-        self.page_dashboard = PageDashboard()
+        self.page_dashboard = PageDashboard(user)
         self.page_users = PageUtilisateurs()
         self.page_cours = PageCours()
         self.page_sessions = PageSessions()
@@ -31,7 +33,11 @@ class MainWindow(QMainWindow):
         self.btn_users.clicked.connect(lambda: self.naviguer(1, "Gestion des Utilisateurs", self.btn_users))
         self.btn_cours.clicked.connect(lambda: self.naviguer(2, "Gestion des Cours", self.btn_cours))
         self.btn_sessions.clicked.connect(lambda: self.naviguer(3, "Gestion des Sessions", self.btn_sessions))
-        self.btn_reservations.clicked.connect(lambda: self.naviguer(4, "Gestion des Réservations", self.btn_reservations))
+        self.btn_reservations.clicked.connect(lambda: self.naviguer(4, "Gestion des Reservations", self.btn_reservations))
+
+        role = user[4]
+        if role == 'professeur':
+            self.btn_users.hide()
 
         self.naviguer(0, "Dashboard", self.btn_dashboard)
 
@@ -55,7 +61,6 @@ class MainWindow(QMainWindow):
         self.main_layout.setContentsMargins(0, 0, 0, 0)
         self.main_layout.setSpacing(0)
 
-        # sidebar
         self.sidebar = QWidget()
         self.sidebar.setObjectName("sideBar")
         self.sidebar.setFixedWidth(200)
@@ -65,7 +70,6 @@ class MainWindow(QMainWindow):
         self.sidebar_layout.setContentsMargins(10, 20, 10, 20)
         self.sidebar_layout.setSpacing(10)
 
-        # logo et titre
         self.logo_label = QLabel("学")
         self.logo_label.setAlignment(Qt.AlignCenter)
         self.logo_label.setObjectName("logo")
@@ -77,12 +81,11 @@ class MainWindow(QMainWindow):
         self.sidebar_layout.addWidget(self.logo_label)
         self.sidebar_layout.addWidget(self.logo_title)
 
-        # boutons
         self.btn_dashboard = QPushButton("Dashboard")
         self.btn_users = QPushButton("Utilisateurs")
         self.btn_cours = QPushButton("Cours")
         self.btn_sessions = QPushButton("Sessions")
-        self.btn_reservations = QPushButton("Réservations")
+        self.btn_reservations = QPushButton("Reservations")
 
         for b in [self.btn_dashboard, self.btn_users, self.btn_cours, self.btn_sessions, self.btn_reservations]:
             b.setCheckable(True)
@@ -91,13 +94,34 @@ class MainWindow(QMainWindow):
 
         self.sidebar_layout.addStretch()
 
-        # main area
+        user_name_container = QWidget()
+        user_name_layout = QHBoxLayout(user_name_container)
+        user_name_layout.setContentsMargins(0, 0, 0, 0)
+        user_name_layout.setSpacing(5)
+        user_name_layout.setAlignment(Qt.AlignCenter)
+
+        self.lbl_user_prenom = QLabel(self.user[2] if self.user else "")
+        self.lbl_user_prenom.setObjectName("userPrenom")
+
+        self.lbl_user_nom = QLabel(self.user[1] if self.user else "")
+        self.lbl_user_nom.setObjectName("userNom")
+
+        user_name_layout.addWidget(self.lbl_user_prenom)
+        user_name_layout.addWidget(self.lbl_user_nom)
+
+        self.sidebar_layout.addWidget(user_name_container)
+
+        self.lbl_user_role = QLabel(self.user[4].capitalize() if self.user else "")
+        self.lbl_user_role.setAlignment(Qt.AlignCenter)
+        self.lbl_user_role.setObjectName("userRole")
+
+        self.sidebar_layout.addWidget(self.lbl_user_role)
+
         self.main_area_widget = QWidget()
         self.main_area_layout = QVBoxLayout(self.main_area_widget)
         self.main_area_layout.setContentsMargins(20, 10, 20, 20)
         self.main_area_layout.setSpacing(10)
 
-        # topbar
         self.topbar_widget = QWidget()
         self.topbar_layout = QHBoxLayout(self.topbar_widget)
         self.topbar_layout.setContentsMargins(0, 0, 0, 0)
