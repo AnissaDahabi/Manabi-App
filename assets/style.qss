@@ -97,6 +97,28 @@ QHeaderView::section {
     font-weight: bold;
 }
 
+QTableWidget::item {
+    padding: 6px;
+}
+
+QTableWidget::item:selected {
+    background-color: #ECE0CF;
+    color: #2C2C2C;
+}
+
+QTableWidget::item:hover {
+    background-color: #ECE0CF;
+    color: #2C2C2C;
+}
+
+QTableWidget:focus {
+    outline: none;
+}
+
+QTableWidget::item:focus {
+    outline: none;
+}
+
 #sectionTitre {
     font-size: 14px;
     font-weight: bold;
