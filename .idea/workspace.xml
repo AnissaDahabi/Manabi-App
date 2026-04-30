@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7392be1c-071a-434f-85c1-55691c07428d" name="Changes" comment="base for the gui">
-      <change afterPath="$PROJECT_DIR$/assets/style.qss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gui/__init__.py" afterDir="false" />
+    <list default="true" id="7392be1c-071a-434f-85c1-55691c07428d" name="Changes" comment="login page functional">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/style.qss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/style.qss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gui/main_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui/main_window.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gui/page_cours.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui/page_cours.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gui/page_reservations.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui/page_reservations.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gui/page_sessions.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui/page_sessions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gui/page_utilisateurs.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui/page_utilisateurs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/cours_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/cours_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/reservation_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/reservation_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/session_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/session_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/user_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/user_service.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,13 +58,16 @@
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
 }</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-2653e85de345-6d6dccd035ac-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.31033.139" />
+        <option value="bundled-python-sdk-b63d5a1f7c97-b61e75351b1f-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.22158.340" />
       </set>
     </attachedChunks>
   </component>
@@ -93,6 +97,9 @@
     </task>
     <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="created models and user_service" />

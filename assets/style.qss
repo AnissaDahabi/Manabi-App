@@ -2,6 +2,8 @@ QMainWindow {
     background-color: #FFF;
 }
 
+/* Sidebar */
+
 #sideBar {
     background-color: #f4f1ec;
     border-right: 1px solid #E0DDD8;
@@ -21,6 +23,33 @@ QMainWindow {
     color: #2C2C2C;
     padding-bottom: 1em;
 }
+
+#userPrenom {
+    font-size: 13px;
+    color: #2c2c2c;
+}
+
+#userNom {
+    font-size: 13px;
+    color: #2c2c2c;
+}
+
+#userRole {
+    font-size: 11px;
+    color: #c0392b;
+}
+
+/* Topbar */
+
+#topbarLabel {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Noto Serif JP', Georgia, serif;
+    color: #2C2C2C;
+    padding: 10px;
+}
+
+/* Buttons */
 
 QPushButton {
     font-family: 'DM Sans', 'Segoe UI', sans-serif;
@@ -57,28 +86,189 @@ QPushButton:checked {
     background-color: #922b21;
 }
 
-#topbarLabel {
-    font-size: 18px;
+/* Bouton action rouge (Modifier, Supprimer, Enregistrer) */
+#btnAction {
+    background-color: #c0392b;
+    color: #FFF;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
     font-weight: bold;
-    font-family: 'Noto Serif JP', Georgia, serif;
-    color: #2C2C2C;
-    padding: 10px;
+    border-radius: 20px;
+    padding: 5px 15px;
+    min-width: 110px;
+    min-height: 32px;
+    border: none;
 }
 
-#userPrenom {
+#btnAction:hover {
+    background-color: #922b21;
+}
+
+#btnAction:disabled {
+    background-color: #ddd;
+    color: #aaa;
+}
+
+/* Bouton fantôme */
+#btnGhost {
+    background-color: transparent;
+    color: #8a8580;
+    font-family: 'DM Sans', sans-serif;
     font-size: 13px;
+    border-radius: 20px;
+    padding: 5px 15px;
+    min-width: 90px;
+    min-height: 32px;
+    border: 1px solid #E0DDD8;
+}
+
+#btnGhost:hover {
+    background-color: #f4f1ec;
+    color: #2c2c2c;
+    font-weight: normal;
+}
+
+/* Boutons confirmer / annuler réservations */
+
+#btnConfirmer {
+    background-color: #27ae60;
+    color: #FFF;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 5px 15px;
+    min-width: 130px;
+    min-height: 30px;
+    border: none;
+}
+
+#btnConfirmer:hover {
+    background-color: #1e8449;
+}
+
+#btnConfirmer:disabled {
+    background-color: #555;
+    color: #999;
+}
+
+#btnAnnulerResa {
+    background-color: #c0392b;
+    color: #FFF;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 5px 15px;
+    min-width: 130px;
+    min-height: 30px;
+    border: none;
+}
+
+#btnAnnulerResa:hover {
+    background-color: #922b21;
+}
+
+#btnAnnulerResa:disabled {
+    background-color: #555;
+    color: #999;
+}
+
+/* Boutons de filtre réservations */
+
+#btnFiltreDefaut {
+    background-color: transparent;
+    color: #aaa;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 16px;
+    padding: 4px 16px;
+    min-height: 30px;
+    border: 2px solid #444;
+}
+
+#btnFiltreDefaut:hover {
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+#btnFiltreDefaut:checked {
+    background-color: #ffffff;
+    border-color: #ffffff;
     color: #2c2c2c;
 }
 
-#userNom {
+#btnFiltreAttente {
+    background-color: transparent;
+    color: #aaa;
+    font-family: 'DM Sans', sans-serif;
     font-size: 13px;
-    color: #2c2c2c;
+    font-weight: bold;
+    border-radius: 16px;
+    padding: 4px 16px;
+    min-height: 30px;
+    border: 2px solid #444;
 }
 
-#userRole {
-    font-size: 11px;
+#btnFiltreAttente:hover {
+    border-color: #e67e22;
+    color: #e67e22;
+}
+
+#btnFiltreAttente:checked {
+    background-color: #e67e22;
+    border-color: #e67e22;
+    color: #fff;
+}
+
+#btnFiltreConfirmees {
+    background-color: transparent;
+    color: #aaa;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 16px;
+    padding: 4px 16px;
+    min-height: 30px;
+    border: 2px solid #444;
+}
+
+#btnFiltreConfirmees:hover {
+    border-color: #27ae60;
+    color: #27ae60;
+}
+
+#btnFiltreConfirmees:checked {
+    background-color: #27ae60;
+    border-color: #27ae60;
+    color: #fff;
+}
+
+#btnFiltreAnnulees {
+    background-color: transparent;
+    color: #aaa;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 16px;
+    padding: 4px 16px;
+    min-height: 30px;
+    border: 2px solid #444;
+}
+
+#btnFiltreAnnulees:hover {
+    border-color: #c0392b;
     color: #c0392b;
 }
+
+#btnFiltreAnnulees:checked {
+    background-color: #c0392b;
+    border-color: #c0392b;
+    color: #fff;
+}
+
+/* Table */
 
 QTableWidget {
     background-color: #FFFFFF;
@@ -118,6 +308,8 @@ QTableWidget:focus {
 QTableWidget::item:focus {
     outline: none;
 }
+
+/* Dashboard */
 
 #sectionTitre {
     font-size: 14px;
@@ -169,6 +361,12 @@ QTableWidget::item:focus {
     border-left: 3px solid #c0392b;
 }
 
+/* ── Login ── */
+
+#loginWindow {
+    background-color: #F4F1ED;
+}
+
 #loginKanji {
     font-size: 52px;
     color: #c0392b;
@@ -204,6 +402,8 @@ QTableWidget::item:focus {
     background-color: #922b21;
 }
 
+/* Inputs globaux */
+
 QLineEdit {
     color: #2c2c2c;
     border: 1px solid #E0DDD8;
@@ -211,6 +411,7 @@ QLineEdit {
     padding: 8px 12px;
     font-size: 13px;
     background: #faf9f7;
+    font-family: 'DM Sans', sans-serif;
 }
 
 QLineEdit:focus {
@@ -218,6 +419,106 @@ QLineEdit:focus {
     background: white;
 }
 
-#loginWindow {
-    background-color: #F4F1ED;
+QTextEdit {
+    color: #2c2c2c;
+    border: 1px solid #E0DDD8;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 13px;
+    background: #faf9f7;
+    font-family: 'DM Sans', sans-serif;
+}
+
+QTextEdit:focus {
+    border: 1px solid #c0392b;
+    background: white;
+}
+
+QComboBox {
+    color: #2c2c2c;
+    border: 1px solid #E0DDD8;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 13px;
+    background: #faf9f7;
+    font-family: 'DM Sans', sans-serif;
+}
+
+QComboBox:focus {
+    border: 1px solid #c0392b;
+    background: white;
+}
+
+QComboBox::drop-down {
+    border: none;
+    width: 20px;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #faf9f7;
+    color: #2c2c2c;
+    selection-background-color: #ECE0CF;
+    border: 1px solid #E0DDD8;
+}
+
+QDateEdit, QTimeEdit {
+    color: #2c2c2c;
+    border: 1px solid #E0DDD8;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 13px;
+    background: #faf9f7;
+    font-family: 'DM Sans', sans-serif;
+}
+
+QDateEdit:focus, QTimeEdit:focus {
+    border: 1px solid #c0392b;
+    background: white;
+}
+
+QDateEdit::drop-down, QTimeEdit::drop-down {
+    border: none;
+    width: 20px;
+}
+
+QCalendarWidget QAbstractItemView {
+    background-color: #faf9f7;
+    color: #2c2c2c;
+    selection-background-color: #c0392b;
+    selection-color: white;
+}
+
+QCalendarWidget QWidget#qt_calendar_navigationbar {
+    background-color: #f4f1ec;
+}
+
+/* Panneau latéral */
+
+#panneau {
+    background-color: #f4f1ec;
+    border-left: 1px solid #E0DDD8;
+}
+
+#panneauTitre {
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'Noto Serif JP', Georgia, serif;
+    color: #2c2c2c;
+    padding-bottom: 4px;
+}
+
+#panneauSep {
+    color: #E0DDD8;
+}
+
+#formLabel {
+    font-size: 12px;
+    font-weight: bold;
+    color: #8a8580;
+    font-family: 'DM Sans', sans-serif;
+}
+
+#formErreur {
+    color: #c0392b;
+    font-size: 12px;
 }

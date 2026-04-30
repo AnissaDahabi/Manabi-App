@@ -19,9 +19,9 @@ class MainWindow(QMainWindow):
 
         self.page_dashboard = PageDashboard(user)
         self.page_users = PageUtilisateurs()
-        self.page_cours = PageCours()
-        self.page_sessions = PageSessions()
-        self.page_resas = PageReservations()
+        self.page_cours = PageCours(user=user)
+        self.page_sessions = PageSessions(user=user)
+        self.page_resas = PageReservations(user=user)
 
         self.content_stack.addWidget(self.page_dashboard)
         self.content_stack.addWidget(self.page_users)
@@ -45,12 +45,25 @@ class MainWindow(QMainWindow):
         self.content_stack.setCurrentIndex(index)
         self.topbar_label.setText(titre)
 
-        if index == 0 or index == 4:
-            self.btn_ajouter.hide()
-        else:
-            self.btn_ajouter.show()
+        try:
+            self.btn_ajouter.clicked.disconnect()
+        except RuntimeError:
+            pass
 
-        for b in [self.btn_dashboard, self.btn_users, self.btn_cours, self.btn_sessions, self.btn_reservations]:
+        if index == 1:
+            self.btn_ajouter.clicked.connect(self.page_users.ajouter)
+            self.btn_ajouter.show()
+        elif index == 2:
+            self.btn_ajouter.clicked.connect(self.page_cours.ajouter)
+            self.btn_ajouter.show()
+        elif index == 3:
+            self.btn_ajouter.clicked.connect(self.page_sessions.ajouter)
+            self.btn_ajouter.show()
+        else:
+            self.btn_ajouter.hide()
+
+        for b in [self.btn_dashboard, self.btn_users, self.btn_cours,
+                  self.btn_sessions, self.btn_reservations]:
             b.setChecked(False)
         bouton.setChecked(True)
 

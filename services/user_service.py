@@ -1,5 +1,6 @@
 from database.database import get_connection
 
+
 def get_all_users():
     connexion = get_connection()
     curseur = connexion.cursor()
@@ -8,6 +9,17 @@ def get_all_users():
     connexion.close()
     return resultats
 
+
+def get_all_professeurs():
+    """Retourne tous les utilisateurs ayant le rôle 'professeur'."""
+    connexion = get_connection()
+    curseur = connexion.cursor()
+    curseur.execute("SELECT id, nom, prenom FROM users WHERE role = 'professeur' ORDER BY nom, prenom")
+    resultats = curseur.fetchall()
+    connexion.close()
+    return resultats
+
+
 def delete_user(id):
     connexion = get_connection()
     curseur = connexion.cursor()
@@ -15,16 +27,24 @@ def delete_user(id):
     connexion.commit()
     connexion.close()
 
+
 def create_user(user):
     connexion = get_connection()
     curseur = connexion.cursor()
-    curseur.execute("INSERT INTO users(nom, prenom, email, password, role) VALUES(%s, %s, %s, %s, %s);", (user.nom, user.prenom, user.email, user.password, user.role,))
+    curseur.execute(
+        "INSERT INTO users(nom, prenom, email, password, role) VALUES(%s, %s, %s, %s, %s);",
+        (user.nom, user.prenom, user.email, user.password, user.role,)
+    )
     connexion.commit()
     connexion.close()
+
 
 def update_user(user):
     connexion = get_connection()
     curseur = connexion.cursor()
-    curseur.execute("UPDATE users SET nom = %s, prenom = %s, email = %s, password = %s, role = %s WHERE id = %s", (user.nom, user.prenom, user.email, user.password, user.role, user.id,))
+    curseur.execute(
+        "UPDATE users SET nom = %s, prenom = %s, email = %s, password = %s, role = %s WHERE id = %s",
+        (user.nom, user.prenom, user.email, user.password, user.role, user.id,)
+    )
     connexion.commit()
     connexion.close()
