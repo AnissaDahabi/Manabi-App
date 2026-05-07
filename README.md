@@ -1,4 +1,4 @@
-# 🖥️ Manabi App
+# 学 Manabi App
 
 Application de bureau Python permettant aux administrateurs et professeurs de gérer les cours de japonais, les sessions, les utilisateurs et les réservations.
 
@@ -10,9 +10,9 @@ Application de bureau Python permettant aux administrateurs et professeurs de g�
 
 - Authentification par e-mail / mot de passe avec gestion des rôles (administrateur / professeur)
 - Tableau de bord présentant des statistiques globales de la plateforme
-- Gestion complète des utilisateurs (création, modification, suppression) — réservée aux administrateurs
+- Gestion complète des utilisateurs (création, modification, suppression) : réservée aux administrateurs
 - Gestion des cours et sessions : les administrateurs accèdent à l'ensemble des données, les professeurs uniquement aux cours et sessions qui leur sont attribués
-- Gestion des réservations (confirmation, annulation, affichage) — réservée aux administrateurs
+- Gestion des réservations (confirmation, annulation, affichage) : réservée aux administrateurs
 - Interface stylisée en QSS, cohérente visuellement avec l'application web Manabi
 
 ---
@@ -84,15 +84,6 @@ manabi-app/
 ```
 
 ---
-
-## Lien avec Manabi Web
-
-Manabi App partage la même base de données MySQL que [Manabi Web](https://manabi.alwaysdata.net/), l'application web destinée aux élèves. Cette architecture garantit la cohérence des données entre les deux outils en temps réel.
-
-| Application | Public cible | Technologie |
-|-------------|--------------|-------------|
-| Manabi Web | Élèves | PHP / HTML / CSS |
-| Manabi App | Administrateurs & Professeurs | Python / PySide6 |
 
 ## Installation
 
