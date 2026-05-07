@@ -65,7 +65,8 @@ Pour tester l'application, utilisez les comptes suivants :
 ```
 manabi-app/
 ├── main.py
-├── config/
+├── database/
+│   ├── config.py
 │   └── database.py
 ├── models/
 │   ├── user.py
@@ -73,22 +74,22 @@ manabi-app/
 │   ├── session.py
 │   └── reservation.py
 ├── services/
-│   ├── auth_service.py
+│   ├── dashboard_service.py
 │   ├── user_service.py
 │   ├── cours_service.py
 │   ├── session_service.py
+│   ├── login_service.py
 │   └── reservation_service.py
-├── pages/
-│   ├── login_page.py
-│   ├── dashboard_page.py
-│   ├── users_page.py
-│   ├── cours_page.py
-│   ├── sessions_page.py
-│   └── reservations_page.py
+├── gui/
+│   ├── login_window.py
+│   ├── main_window.py
+│   ├── page_cours.py
+│   ├── page_dashboard.py
+│   ├── page_reservations.py
+│   ├── page_sessions.py
+│   └── page_utilisateurs.py
 └── assets/
-    ├── style.qss
-    └── images/
-        └── logo.png
+    └── style.qss
 ```
 
 ---
@@ -134,12 +135,12 @@ python main.py
 
 ### Problèmes fréquents
 
-**`python` n'est pas reconnu** → essaie `python3` à la place, ou réinstalle Python en cochant "Add to PATH".
+**`python` n'est pas reconnu** → essayez `python3` à la place, ou réinstallez Python en cochant "Add to PATH".
 
-**Erreur à l'activation du venv** → ouvre PowerShell en administrateur et tape :
+**Erreur à l'activation du venv** → ouvrez PowerShell en administrateur et tapez :
 ```
 Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 ```
-Puis réessaie `.venv\Scripts\activate`.
+Puis réessayez `.venv\Scripts\activate`.
 
-**Erreur à l'import de PySide6** → vérifie que tu vois bien `(.venv)` au début de ta ligne de commande avant de lancer `pip install`.
+**Erreur à l'import de PySide6** → vérifiez que vous voyez bien `(.venv)` au début de votre ligne de commande avant de lancer `pip install`.
