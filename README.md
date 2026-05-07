@@ -32,6 +32,14 @@ Application de bureau Python permettant aux administrateurs et professeurs de g√
 
 ---
 
+## Maquette
+
+La maquette de l'application est disponible sur Figma :
+
+[Voir la maquette Figma](https://www.figma.com/design/1C33Ic4tro5fD1D78Vx55T/Manabi?node-id=0-1&t=XY4ynPe2jwljuJsx-1)
+
+---
+
 ## D√©mo
 
 Pour tester l'application, utilisez les comptes suivants :
