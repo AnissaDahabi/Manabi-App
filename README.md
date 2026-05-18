@@ -98,7 +98,7 @@ manabi-app/
 
 ### Prérequis
 
-- [Python 3.10+](https://www.python.org/downloads/) — lors de l'installation, coche bien **"Add Python to PATH"**
+- [Python 3.10+](https://www.python.org/downloads/) - lors de l'installation, cochez **"Add Python to PATH"**
 - [Git](https://git-scm.com/download/win)
 
 ---
