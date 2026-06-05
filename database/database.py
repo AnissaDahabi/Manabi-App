@@ -1,11 +1,11 @@
-import mysql.connector
-from database.config import DB_HOST, DB_NAME, DB_USER, DB_PASSWORD
+import pymysql
 
 def get_connection():
-    connexion = mysql.connector.connect(
-        host=DB_HOST,
-        database=DB_NAME,
-        user=DB_USER,
-        password=DB_PASSWORD
+    connexion = pymysql.connect(
+        host='172.26.131.113',
+        database='manabi_db',
+        user='user',
+        password='user',
+        port=3306
     )
     return connexion
